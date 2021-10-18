@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from '../../Shared/Footer/Footer';
 import SingleDoctor from '../SingleDoctor/SingleDoctor';
 
 
@@ -12,7 +13,7 @@ const Doctors = () => {
             .then(data => setDoctors(data))
     }, [])
     return (
-        <div className="container">
+        <div id="doctors" className="container">
             <h2 className="text-primary m-5">Our Doctors</h2>
             <div className="row">
                 {
@@ -22,7 +23,9 @@ const Doctors = () => {
                     ></SingleDoctor>)
                 }
             </div>
+            {/* <Footer></Footer> */}
         </div>
+
     );
 };
 

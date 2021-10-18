@@ -1,0 +1,12 @@
+.banner{
+    background-color: lightslategray;
+    border: 1px solid black;
+    height: 70vh;
+}
+.carousel{
+    text-align: center;
+    align-items: center;
+}
+.team{
+    color: rgb(109, 34, 4);
+}
