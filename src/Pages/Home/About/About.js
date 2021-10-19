@@ -13,8 +13,10 @@ const About = () => {
             .then(data => setServices(data))
     }, [])
     return (
-        <div id="services">
-            <Banner></Banner>
+        <div id="services container">
+            <Banner></Banner><br />
+            <div>  </div>
+            <br />
             <h1 className="my-5"><span className="text-white bg-primary p-2 ">ABOUT US</span></h1>
             <hr />
             <div className="text-white bg-primary">-------------------WIKIPEDIA------------------</div>

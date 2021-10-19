@@ -7,7 +7,7 @@ import image3 from '../../../images/image3.jpg'
 
 const Banner = () => {
     return (
-        <div className="banner">
+        <div className="banner mb-5">
             <div className="row">
                 <div className="col-md-6 mt-5">
                     <h1><span className="text-white">Team Work</span> <br /> <span className="team">Coming Together is The Beginning <br /> Keeping Together is Progress <br /> Working Together is Success</span></h1>
