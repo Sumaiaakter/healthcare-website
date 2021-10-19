@@ -15,6 +15,9 @@ const About = () => {
     return (
         <div id="services">
             <Banner></Banner>
+            <h1 className="my-5"><span className="text-white bg-primary p-2 ">ABOUT US</span></h1>
+            <hr />
+            <div className="text-white bg-primary">-------------------WIKIPEDIA------------------</div>
             <h1>Testimonials</h1>
             <hr />
             <h2 className="text-primary m-5">Everything you need to support you in <br />

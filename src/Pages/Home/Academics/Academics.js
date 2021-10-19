@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../../Shared/Footer/Footer';
+import Banner from '../Banner/Banner';
 import SingleDoctor from '../SingleDoctor/SingleDoctor';
 
-
-
-const Doctors = () => {
+const Academics = () => {
     const [doctors, setDoctors] = useState([])
 
     useEffect(() => {
@@ -13,14 +11,15 @@ const Doctors = () => {
             .then(data => setDoctors(data))
     }, [])
     return (
-        <div id="doctors" className="container">
-            <h1 className="my-5"><span className="text-white bg-primary p-2 ">Explore Our Top Doctors</span></h1>
+        <div id="doctors">
+            <Banner />
+            <h1 className="my-5"><span className="text-white bg-primary p-2 ">Explore Our Top Students</span></h1>
             <hr />
-            <p className="text-primary">Coming Together is The Beginning <br />
+            <h3 className="text-primary">Coming Together is The Beginning <br />
                 Keeping Together is Progress <br />
-                Working Together is Success</p>
+                Working Together is Success</h3>
             <hr />
-            <h2 className="text-primary m-5">Our Doctors</h2>
+            <h2 className="text-primary m-5">Our Students</h2>
             <div className="row">
                 {
                     doctors.map(doctor => <SingleDoctor
@@ -31,8 +30,7 @@ const Doctors = () => {
             </div>
             {/* <Footer></Footer> */}
         </div>
-
     );
 };
 
-export default Doctors;
+export default Academics;

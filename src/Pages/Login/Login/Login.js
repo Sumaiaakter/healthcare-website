@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { getAuth, updateProfile } from "firebase/auth";
+import { getAuth, updateProfile, GoogleAuthProvider } from "firebase/auth";
 import useAuth from '../../../hooks/useAuth';
+import initializeAuthentication from '../Firebase/Firebase.init';
 
 
+initializeAuthentication();
 
 const Login = () => {
     const auth = getAuth();
+    const [name, setName] = useState('')
 
-
+    const handleNameChange = (e) => {
+        setName(e.target.value)
+    }
     const { user, googleSignIn, handleRegister, handleEmailChange, handlePasswordChange, error, toggle, isLogin, handleResetPassword, } = useAuth();
 
 
 
     return (
         <div className="container">
-            <h2>Please {isLogin ? "Login" : "Register"}</h2>
+            <h2 className="text-primary">Please {isLogin ? "Login" : "Register"}</h2>
+            <h2>{user.email}</h2>
+            <h2>name: {user.name}</h2>
             <Form onSubmit={handleRegister}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    {!isLogin && <><Form.Label>Name</Form.Label>
-                        <Form.Control type="email" placeholder="Enter Name" /></>}
+                    {!isLogin && <><Form.Control type="text" onBlur={handleNameChange} placeholder="Normal text" /></>}
 
 
                     <Form.Label>Email address</Form.Label>

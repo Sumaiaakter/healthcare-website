@@ -15,10 +15,12 @@ const Services = () => {
     return (
         <div id="services">
             <Banner></Banner>
+            <h1 className="my-5"><span className="text-white bg-primary p-2 ">Explore Our Top Services</span></h1>
+            <hr />
             <h2 className="text-primary m-5">Everything you need to support you in <br />
                 your efforts as a family caregiver</h2>
             <hr />
-            <h1 className="my-5"><span className="text-white bg-primary p-2 ">Explore Our Top Services</span></h1>
+
             <div className="service-container">
 
                 {

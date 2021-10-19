@@ -35,60 +35,55 @@ const useFirebase = () => {
     const handleRegister = (e) => {
         e.preventDefault();
         console.log(email, password);
-        const newUser = createUserWithEmailAndPassword(auth, email, password)
+        if (password.length < 6) {
+            setError('Password must be at least 6 characters')
+            return;
+        }
+        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+            setError('"Password must contain 2 upper case"');
+            return;
+        }
+
+        if (isLogin) {
+            processLogin(email, password);
+        }
+        else {
+            registerNewUser(email, password)
+        }
+
+    }
+    const processLogin = (email, password) => {
+        signInWithEmailAndPassword(auth, email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                setError('')
-                verifyEmail();
-                setUserName();
+                setError('');
             })
             .catch(error => {
                 setError(error.message)
             })
-        if (password.length < 6) {
-            setError('"password must be at least 6 characters"')
-            return;
-        }
-        if (isLogin) {
-
-            signInWithEmailAndPassword(auth, email, password)
-                .then(result => {
-                    const user = result.user;
-                    console.log(user)
-                    setError('')
-                })
-
-                .catch(error => {
-                    setError(error.message)
-                })
-
-        }
-        else {
-            newUser();
-            // createUserWithEmailAndPassword(auth, email, password)
-            //     .then(result => {
-            //         const user = result.user;
-            //         console.log(user)
-            //         setError('')
-            //         verifyEmail();
-            //         setUserName();
-            //     })
-            //     .catch(error => {
-            //         setError(error.message)
-            //     })
-        }
-
-
     }
+
+    const registerNewUser = (email, password) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                verifyEmail();
+                setUserName()
+            })
+            .catch(error => {
+                setError(error.message);
+            })
+        // e.preventDefault();
+    }
+
+
     const handleNameChange = (e) => {
         setName(e.target.value)
     }
-    const setUserName = () => {
-        updateProfile(auth.currentUser, { displayName: name })
-            .then(result => { })
 
-    }
 
 
 
@@ -140,6 +135,11 @@ const useFirebase = () => {
 
             })
     }
+    const setUserName = () => {
+        updateProfile(auth.currentUser, { displayName: name })
+            .then(result => { })
+
+    }
 
 
     return {
@@ -148,7 +148,7 @@ const useFirebase = () => {
         isLoading,
         logOut,
         googleSignIn,
-        handleEmailChange, handlePasswordChange, handleResetPassword, handleRegister, error, toggle, isLogin,
+        handleEmailChange, handlePasswordChange, handleResetPassword, handleRegister, error, toggle, isLogin, setUserName
     }
 
 }

@@ -16,7 +16,7 @@ const Details = () => {
     return (
         <div className="container">
 
-            <div className="single-service">
+            <div className="single-service~">
                 <h2>{id}</h2>
                 <img width="100%" src={personalDetail[0]?.img} alt="" />
                 <h2>{personalDetail[0]?.name}</h2>

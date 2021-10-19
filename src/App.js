@@ -14,6 +14,7 @@ import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Services from './Pages/Home/Services/Services';
 import About from './Pages/Home/About/About';
 import Footer from './Pages/Shared/Footer/Footer';
+import Academics from './Pages/Home/Academics/Academics';
 
 
 
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <Route path="/home">
               <Home></Home>
+            </Route>
+            <Route path="/academic">
+              <Academics></Academics>
             </Route>
             <Route path="/services">
               <Services></Services>
